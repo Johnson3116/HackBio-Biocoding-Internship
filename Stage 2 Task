@@ -43,17 +43,18 @@ plt.show()
 
 # Calculate the mean of the 60-second pulse rate
 mean_pulse_rate = df['Pulse'].mean()
-mean_pulse_rate
+print(f"Mean 60-second pulse rate: {mean_pulse_rate}")
 
 # Range of Diastolic Blood Pressure
 min_diastolic = df['DBP'].min()
 max_diastolic = df['DBP'].max()
-min_diastolic, max_diastolic
+print(f"Range of Diastolic Blood Pressure: {min_diastolic}-{max_diastolic}")
 
 # Variance and standard deviation for income
 income_variance = df['Income'].var()
 income_std_dev = df['Income'].std()
-income_variance, income_std_dev
+print(f"Variance of Income: {income_variance}")
+print(f"Standard Deviation of Income: {income_std_dev}")
 
 # Visualizing the relationship between Weight and Height colored by different categories
 plt.figure(figsize=(10, 6))
