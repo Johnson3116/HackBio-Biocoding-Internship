@@ -40,3 +40,5 @@ plt.title('Distribution of Age')
 
 plt.tight_layout()
 plt.show()
+
+
