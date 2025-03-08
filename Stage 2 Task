@@ -41,4 +41,51 @@ plt.title('Distribution of Age')
 plt.tight_layout()
 plt.show()
 
+# Calculate the mean of the 60-second pulse rate
+mean_pulse_rate = df['Pulse'].mean()
+mean_pulse_rate
+
+# Range of Diastolic Blood Pressure
+min_diastolic = df['DBP'].min()
+max_diastolic = df['DBP'].max()
+min_diastolic, max_diastolic
+
+# Variance and standard deviation for income
+income_variance = df['Income'].var()
+income_std_dev = df['Income'].std()
+income_variance, income_std_dev
+
+# Visualizing the relationship between Weight and Height colored by different categories
+plt.figure(figsize=(10, 6))
+
+# Gender as color
+plt.subplot(2, 2, 1)
+sns.scatterplot(data=df, x='Height', y='Weight', hue='Gender')
+plt.title('Weight vs Height by Gender')
+
+# Diabetes as color
+plt.subplot(2, 2, 2)
+sns.scatterplot(data=df, x='Height', y='Weight', hue='Diabetes')
+plt.title('Weight vs Height by Diabetes')
+
+# Smoking Status as color
+plt.subplot(2, 2, 3)
+sns.scatterplot(data=df, x='Height', y='Weight', hue='Smoking_Status')
+plt.title('Weight vs Height by Smoking Status')
+
+plt.tight_layout()
+plt.show()
+
+# T-test for Age and Gender
+grouped_age = df.groupby('Gender')['Age'].mean()
+t_stat, p_value = stats.ttest_ind(df[df['Gender'] == 'Male']['Age'], df[df['Gender'] == 'Female']['Age'])
+t_stat, p_value
+
+# T-test for BMI and Diabetes
+t_stat_bmi, p_value_bmi = stats.ttest_ind(df[df['Diabetes'] == 1]['BMI'], df[df['Diabetes'] == 0]['BMI'])
+t_stat_bmi, p_value_bmi
+
+# T-test for Alcohol Year and Relationship Status
+t_stat_alcohol, p_value_alcohol = stats.ttest_ind(df[df['Relationship_Status'] == 'Married']['Alcohol_Year'], df[df['Relationship_Status'] == 'Single']['Alcohol_Year'])
+t_stat_alcohol, p_value_alcohol
 
