@@ -1,1 +1,42 @@
+#Task Code 2.7: Public Health
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+
+# Step 1: Load the dataset
+url = 'https://raw.githubusercontent.com/HackBio-Internship/public_datasets/main/R/nhanes.csv'
+data = pd.read_csv(url)
+
+# Step 2: Handle missing values (NA)
+# Option 1: Fill missing values with 0
+data_filled = data.fillna(0)
+print(data_filled)
+
+# Step 3: Visualize the distribution of BMI, Weight, Weight in pounds (weight * 2.2), and Age with histograms
+plt.figure(figsize=(14, 10))
+
+# Plot BMI
+plt.subplot(2, 2, 1)
+sns.histplot(data_filled['BMI'], kde=True)
+plt.title('Distribution of BMI')
+
+# Plot Weight
+plt.subplot(2, 2, 2)
+sns.histplot(data_filled['Weight'], kde=True)
+plt.title('Distribution of Weight')
+
+# Plot Weight in Pounds (Weight * 2.2)
+plt.subplot(2, 2, 3)
+sns.histplot(data_filled['Weight'] * 2.2, kde=True)
+plt.title('Distribution of Weight in Pounds')
+
+# Plot Age
+plt.subplot(2, 2, 4)
+sns.histplot(data_filled['Age'], kde=True)
+plt.title('Distribution of Age')
+
+plt.tight_layout()
+plt.show()
