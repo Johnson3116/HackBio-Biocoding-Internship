@@ -7,8 +7,8 @@ import seaborn as sns
 from scipy import stats
 
 # Step 1: Load the dataset
-url = 'https://raw.githubusercontent.com/HackBio-Internship/public_datasets/main/R/nhanes.csv'
-data = pd.read_csv(url)
+df = 'https://raw.githubusercontent.com/HackBio-Internship/public_datasets/main/R/nhanes.csv'
+data = pd.read_csv(df)
 
 # Step 2: Handle missing values (NA)
 # Option 1: Fill missing values with 0
