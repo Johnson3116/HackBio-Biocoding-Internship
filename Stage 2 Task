@@ -44,27 +44,28 @@ plt.show()
 
 # Step 4: # Calculate the mean of the 60-second pulse rate
 mean_pulse_rate = df['Pulse'].mean()
-print(f"mean of the 60-second pulse rate: {mean_pulse_rate}") #Answer: 63.06
-#Above is good when code is run
+print(f"Mean of the 60-second pulse rate: {mean_pulse_rate}") #Answer: 63.06
 
-# Range of Diastolic Blood Pressure
-min_diastolic = df['DBP'].min()
-max_diastolic = df['DBP'].max()
-print(f"Range of Diastolic Blood Pressure: {min_diastolic}-{max_diastolic}")
+# Calculate the range of diastolic blood pressure
+min_diastolic_bp = df['BPDia'].min()
+max_diastolic_bp = df['BPDia'].max()
+print(f"Range of the diastolic blood pressure: {min_diastolic_bp} - {max_diastolic_bp}") #Answer: 0.0 - 116.0
 
 # Variance and standard deviation for income
 income_variance = df['Income'].var()
 income_std_dev = df['Income'].std()
 print(f"Variance of Income: {income_variance}")
-print(f"Standard Deviation of Income: {income_std_dev}")
+print(f"Standard Deviation of Income: {income_std_dev}") 
+#Answer: Variance of Income: 1264147753.5507102 #Answer: Standard Deviation of Income: 35554.85555519401
 
 # Visualizing the relationship between Weight and Height colored by different categories
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(12, 10))
 
 # Gender as color
 plt.subplot(2, 2, 1)
 sns.scatterplot(data=df, x='Height', y='Weight', hue='Gender')
 plt.title('Weight vs Height by Gender')
+#Above is good when code is run
 
 # Diabetes as color
 plt.subplot(2, 2, 2)
