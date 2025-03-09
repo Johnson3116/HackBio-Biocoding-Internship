@@ -65,7 +65,6 @@ plt.figure(figsize=(12, 10))
 plt.subplot(2, 2, 1)
 sns.scatterplot(data=df, x='Height', y='Weight', hue='Gender')
 plt.title('Weight vs Height by Gender')
-#Above is good when code is run
 
 # Diabetes as color
 plt.subplot(2, 2, 2)
@@ -74,11 +73,12 @@ plt.title('Weight vs Height by Diabetes')
 
 # Smoking Status as color
 plt.subplot(2, 2, 3)
-sns.scatterplot(data=df, x='Height', y='Weight', hue='Smoking_Status')
-plt.title('Weight vs Height by Smoking Status')
+sns.scatterplot(data=df, x='Height', y='Weight', hue='SmokingStatus')
+plt.title('Weight vs Height by SmokingStatus')
 
 plt.tight_layout()
 plt.show()
+#Above is good when code is run
 
 # T-test for Age and Gender
 grouped_age = df.groupby('Gender')['Age'].mean()
