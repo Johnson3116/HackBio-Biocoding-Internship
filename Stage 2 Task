@@ -83,6 +83,7 @@ plt.tight_layout()
 plt.show()
 #Above is good when code is run
 
+# Step 7 
 # T-test for Age and Gender
 grouped_age = df.groupby('Gender')['Age'].mean()
 t_stat, p_value = stats.ttest_ind(df[df['Gender'] == 'Male']['Age'], df[df['Gender'] == 'Female']['Age'])
