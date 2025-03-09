@@ -83,7 +83,10 @@ plt.show()
 # T-test for Age and Gender
 grouped_age = df.groupby('Gender')['Age'].mean()
 t_stat, p_value = stats.ttest_ind(df[df['Gender'] == 'Male']['Age'], df[df['Gender'] == 'Female']['Age'])
-t_stat, p_value
+if p_value =< 0.05:
+print(f"there is a relationship between Age and Gender")
+else
+print(f"there is no relationship between Age and Gender")
 
 # T-test for BMI and Diabetes
 t_stat_bmi, p_value_bmi = stats.ttest_ind(df[df['Diabetes'] == 1]['BMI'], df[df['Diabetes'] == 0]['BMI'])
