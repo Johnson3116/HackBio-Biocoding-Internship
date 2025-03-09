@@ -61,7 +61,7 @@ print(f"Standard Deviation of Income: {income_std_dev}")
 #Answer: Variance of Income: 1264147753.5507102
 #Standard Deviation of Income: 35554.85555519401
 
-# Visualizing the relationship between Weight and Height colored by different categories
+# Step 6: Visualizing the relationship between Weight and Height colored by different categories
 plt.figure(figsize=(12, 10))
 
 # Gender as color
