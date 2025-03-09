@@ -6,18 +6,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
 
-# Step 1: Load the dataset
+# Load dataset from the URL
 url = 'https://raw.githubusercontent.com/HackBio-Internship/public_datasets/main/R/nhanes.csv'
 df = pd.read_csv(url)
 
-# Step 2: Handle missing values (NA)
-# Option 1: Fill missing values with 0
-data_filled = data.fillna(0)
-print(data_filled)
+# Display the first few rows of the dataset to understand its structure
+df.head()
 
-# Step 3: Create a new column for Weight in pounds
+# Step 1: Replacing all NA values with 0
+df = df.fillna(0)
+
+print(df)
+
+# Step 2: Create a new column for Weight in pounds
 df['Weight_Pounds'] = df['Weight'] * 2.2
-
 # Set up subplots
 plt.figure(figsize=(12, 10))
 
@@ -42,21 +44,22 @@ plt.title('Distribution of Age')
 plt.tight_layout()
 plt.show()
 
-# Step 4: # Calculate the mean of the 60-second pulse rate
+# Step 3: Calculate the mean of the 60-second pulse rate
 mean_pulse_rate = df['Pulse'].mean()
-print(f"Mean of the 60-second pulse rate: {mean_pulse_rate}") #Answer: 63.06
+print(f"Mean of the 60-second pulse rate: {mean_pulse_rate}") #Answer: Mean of the 60-second pulse rate: 63.06
 
-# Calculate the range of diastolic blood pressure
+# Step 4: Calculate the range of diastolic blood pressure
 min_diastolic_bp = df['BPDia'].min()
 max_diastolic_bp = df['BPDia'].max()
-print(f"Range of the diastolic blood pressure: {min_diastolic_bp} - {max_diastolic_bp}") #Answer: 0.0 - 116.0
+print(f"Range of the diastolic blood pressure: {min_diastolic_bp} - {max_diastolic_bp}") #Answer: Range of the diastolic blood pressure: 0.0 - 116.0
 
-# Variance and standard deviation for income
+# Step 5: Variance and standard deviation for income
 income_variance = df['Income'].var()
 income_std_dev = df['Income'].std()
 print(f"Variance of Income: {income_variance}")
 print(f"Standard Deviation of Income: {income_std_dev}") 
-#Answer: Variance of Income: 1264147753.5507102 #Answer: Standard Deviation of Income: 35554.85555519401
+#Answer: Variance of Income: 1264147753.5507102
+#Standard Deviation of Income: 35554.85555519401
 
 # Visualizing the relationship between Weight and Height colored by different categories
 plt.figure(figsize=(12, 10))
