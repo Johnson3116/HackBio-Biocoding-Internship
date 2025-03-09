@@ -41,11 +41,11 @@ plt.title('Distribution of Age')
 # Show plots
 plt.tight_layout()
 plt.show()
-#Above is good when code is run
 
 # Step 4: # Calculate the mean of the 60-second pulse rate
 mean_pulse_rate = df['Pulse'].mean()
-print(mean_pulse_rate) #Answer: 63.06
+print(f"mean of the 60-second pulse rate: {mean_pulse_rate}") #Answer: 63.06
+#Above is good when code is run
 
 # Range of Diastolic Blood Pressure
 min_diastolic = df['DBP'].min()
