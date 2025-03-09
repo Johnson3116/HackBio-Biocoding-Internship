@@ -7,43 +7,45 @@ import seaborn as sns
 from scipy import stats
 
 # Step 1: Load the dataset
-df = 'https://raw.githubusercontent.com/HackBio-Internship/public_datasets/main/R/nhanes.csv'
-data = pd.read_csv(df)
+url = 'https://raw.githubusercontent.com/HackBio-Internship/public_datasets/main/R/nhanes.csv'
+df = pd.read_csv(url)
 
 # Step 2: Handle missing values (NA)
 # Option 1: Fill missing values with 0
 data_filled = data.fillna(0)
 print(data_filled)
 
-# Step 3: Visualize the distribution of BMI, Weight, Weight in pounds (weight * 2.2), and Age with histograms
-plt.figure(figsize=(14, 10))
+# Step 3: Create a new column for Weight in pounds
+df['Weight_Pounds'] = df['Weight'] * 2.2
 
-# Plot BMI
+# Set up subplots
+plt.figure(figsize=(12, 10))
+
+# Plot histograms
 plt.subplot(2, 2, 1)
-sns.histplot(data_filled['BMI'], kde=True)
+sns.histplot(df['BMI'], kde=True, color='skyblue')
 plt.title('Distribution of BMI')
 
-# Plot Weight
 plt.subplot(2, 2, 2)
-sns.histplot(data_filled['Weight'], kde=True)
+sns.histplot(df['Weight'], kde=True, color='green')
 plt.title('Distribution of Weight')
 
-# Plot Weight in Pounds (Weight * 2.2)
 plt.subplot(2, 2, 3)
-sns.histplot(data_filled['Weight'] * 2.2, kde=True)
+sns.histplot(df['Weight_Pounds'], kde=True, color='orange')
 plt.title('Distribution of Weight in Pounds')
 
-# Plot Age
 plt.subplot(2, 2, 4)
-sns.histplot(data_filled['Age'], kde=True)
+sns.histplot(df['Age'], kde=True, color='purple')
 plt.title('Distribution of Age')
 
+# Show plots
 plt.tight_layout()
 plt.show()
+#Above is good when code is run
 
-# Calculate the mean of the 60-second pulse rate
+# Step 4: # Calculate the mean of the 60-second pulse rate
 mean_pulse_rate = df['Pulse'].mean()
-print(f"Mean 60-second pulse rate: {mean_pulse_rate}")
+print(mean_pulse_rate) #Answer: 63.06
 
 # Range of Diastolic Blood Pressure
 min_diastolic = df['DBP'].min()
